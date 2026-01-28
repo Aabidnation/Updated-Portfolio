@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aabid | Frontend Developer & UI Designer</title>
+    <meta name="description" content="Aabid's portfolio - A passionate frontend developer creating beautiful, responsive web experiences.">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-content">
+            <a href="#hero" class="logo">Aabidnation</a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#works" class="nav-link">Works</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#hero" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#works" class="nav-link">Works</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient-1"></div>
+            <div class="hero-gradient-2"></div>
+            <div class="hero-particles" id="particles"></div>
+        </div>
+        <div class="section-container hero-content">
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1 class="hero-name gradient-text">Mohd Abid Khan</h1>
+            <div class="hero-title" id="heroTitle"></div>
+            <p class="hero-description">
+                Crafting beautiful, responsive web experiences with modern technologies.
+                Passionate about creating pixel-perfect interfaces and seamless user experiences.
+            </p>
+            <div class="hero-socials">
+                <a href="https://github.com/Aabidnation" class="social-btn glass-card">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/mohdabidkhan" class="social-btn glass-card">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://www.aabidnatiion@gmail.com" class="social-btn glass-card">
+                    <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                </a>
+            </div>
+            <a href="#about" class="scroll-indicator">
+                <span>Scroll Down</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-bg"></div>
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">About <span class="gradient-text">Me</span></h2>
+            <div class="section-line about-line animate-on-scroll"></div>
+            <div class="about-grid">
+                <div class="about-image-wrapper animate-on-scroll stagger-1">
+                    <div class="about-image-glow"></div>
+                    <div class="about-image-container">
+                        <div class="about-image-inner"><img src="image.jpg" alt=""></div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h3 class="animate-on-scroll stagger-2">Frontend Developer & UI Enthusiast</h3>
+                    <p class="animate-on-scroll stagger-3">
+                        I'm a passionate frontend developer dedicated to creating beautiful, functional, 
+                        and user-friendly websites. With a strong foundation in modern web technologies, 
+                        I transform ideas into engaging digital experiences that leave lasting impressions.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-card glass-card animate-on-scroll stagger-4">
+                            <div class="icon">🎨</div>
+                            <h4>Creative Design</h4>
+                            <p>Eye for aesthetics</p>
+                        </div>
+                        <div class="highlight-card glass-card animate-on-scroll stagger-5">
+                            <div class="icon">💻</div>
+                            <h4>Clean Code</h4>
+                            <p>Best practices</p>
+                        </div>
+                        <div class="highlight-card glass-card animate-on-scroll stagger-6">
+                            <div class="icon">📱</div>
+                            <h4>Responsive</h4>
+                            <p>All devices</p>
+                        </div>
+                        <div class="highlight-card glass-card animate-on-scroll stagger-6">
+                            <div class="icon">⚡</div>
+                            <h4>Performance</h4>
+                            <p>Fast loading</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="projects-bg"></div>
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">My <span class="gradient-text">Projects</span></h2>
+            <div class="section-line projects-line animate-on-scroll"></div>
+            <p class="section-subtitle animate-on-scroll">Showcasing my recent work and creative endeavors</p>
+            <div class="projects-grid">
+                <div class="project-card glass-card animate-on-scroll stagger-1">
+                    <div class="project-image"><img src="sptfy.avif" alt=""></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Spotify UI Clone</h3>
+                        <p class="project-description">
+                            A music streaming app clone with play/pause, next track, progress bar, and responsive design.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z"/></svg>
+                                Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card glass-card animate-on-scroll stagger-2">
+                    <div class="project-image"><img src="portfolio.avif" alt=""></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-description">
+                            Personal portfolio with glassmorphism design, smooth animations, and responsive layout.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HMTL</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z"/></svg>
+                                Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card glass-card animate-on-scroll stagger-3">
+                    <div class="project-image"><img src="shopping.avif" alt=""></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Shopping Website</h3>
+                        <p class="project-description">
+                            E-commerce platform with product listings, cart functionality, and checkout process.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg viewBox="0 0 24 24"><path d="M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z"/></svg>
+                                Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <div class="works-bg"></div>
+        <div class="works-bg-2"></div>
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">What I <span class="gradient-text">Do</span></h2>
+            <div class="section-line works-line animate-on-scroll"></div>
+            <p class="section-subtitle animate-on-scroll">I specialize in frontend development, creating beautiful and functional web experiences</p>
+            <div class="works-grid">
+                <div class="work-card glass-card animate-on-scroll stagger-1">
+                    <div class="work-icon">🖥️</div>
+                    <h3>Web Development</h3>
+                    <p>Building responsive, fast, and modern websites using cutting-edge technologies.</p>
+                </div>
+                <div class="work-card glass-card animate-on-scroll stagger-2">
+                    <div class="work-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Creating mobile-first designs that work flawlessly across all devices.</p>
+                </div>
+                <div class="work-card glass-card animate-on-scroll stagger-3">
+                    <div class="work-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Designing intuitive user interfaces with focus on user experience.</p>
+                </div>
+                <div class="work-card glass-card animate-on-scroll stagger-4">
+                    <div class="work-icon">💻</div>
+                    <h3>Clean Code</h3>
+                    <p>Writing maintainable, scalable, and well-documented code.</p>
+                </div>
+                <div class="work-card glass-card animate-on-scroll stagger-5">
+                    <div class="work-icon">🌐</div>
+                    <h3>SEO Optimization</h3>
+                    <p>Implementing SEO best practices to improve visibility.</p>
+                </div>
+                <div class="work-card glass-card animate-on-scroll stagger-6">
+                    <div class="work-icon">🧩</div>
+                    <h3>Component Design</h3>
+                    <p>Building reusable UI components and design systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="skills-bg"></div>
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">My <span class="gradient-text">Skills</span></h2>
+            <div class="section-line skills-line animate-on-scroll"></div>
+            <p class="section-subtitle animate-on-scroll">Technologies and tools I use to bring ideas to life</p>
+            <div class="skills-grid">
+                <div class="skill-category glass-card animate-on-scroll stagger-1">
+                    <div class="skill-header skill-header-1">
+                        <span>🌐</span>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card animate-on-scroll stagger-2">
+                    <div class="skill-header skill-header-2">
+                        <span>⚛️</span>
+                        <h3>Frameworks</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Bootstrap</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card animate-on-scroll stagger-3">
+                    <div class="skill-header skill-header-3">
+                        <span>🛠️</span>
+                        <h3>Tools</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card animate-on-scroll stagger-4">
+                    <div class="skill-header skill-header-4">
+                        <span>💡</span>
+                        <h3>Concepts</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">UI/UX</span>
+                        <span class="skill-tag">SEO</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card animate-on-scroll stagger-5">
+                    <div class="skill-header skill-header-5">
+                        <span>☁️</span>
+                        <h3>Platforms</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Netlify</span>
+                        <span class="skill-tag">Vercel</span>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card glass-card animate-on-scroll stagger-1">
+                    <div class="stat-value gradient-text">3+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-card glass-card animate-on-scroll stagger-2">
+                    <div class="stat-value gradient-text">10+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+                <div class="stat-card glass-card animate-on-scroll stagger-3">
+                    <div class="stat-value gradient-text">100%</div>
+                    <div class="stat-label">Dedication</div>
+                </div>
+                <div class="stat-card glass-card animate-on-scroll stagger-4">
+                    <div class="stat-value gradient-text">24/7</div>
+                    <div class="stat-label">Learning</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-bg"></div>
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">Get In <span class="gradient-text">Touch</span></h2>
+            <div class="section-line contact-line animate-on-scroll"></div>
+            <p class="section-subtitle animate-on-scroll">Have a project in mind? Let's work together!</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 class="animate-on-scroll stagger-1">Let's Connect</h3>
+                    <p class="animate-on-scroll stagger-2">
+                        I'm always excited to work on new projects and collaborate with creative minds. 
+                        Feel free to reach out!
+                    </p>
+                    <div class="contact-methods">
+                        <div class="contact-method animate-on-scroll stagger-3">
+                            <div class="icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>aabidnation@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method animate-on-scroll stagger-4">
+                            <div class="icon">📍</div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>India</p>
+                            </div>
+                        </div>
+                        <div class="contact-method animate-on-scroll stagger-5">
+                            <div class="icon">💼</div>
+                            <div>
+                                <h4>Availability</h4>
+                                <p>Open for opportunities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form glass-card animate-on-scroll stagger-2" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message ✨</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="#hero" class="footer-logo gradient-text">Aabid</a>
+            <div class="footer-socials">
+                <a href="https://github.com/Aabidnation" class="footer-social glass-card">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/mohdabidkhan" class="footer-social glass-card">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://x.com/mrabid39" class="footer-social glass-card">
+                    <svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                </a>
+                <a href="https://instagram.com/aabidnation" class="footer-social glass-card">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="#hero" class="footer-link">Home</a>
+                <a href="#about" class="footer-link">About</a>
+                <a href="#projects" class="footer-link">Projects</a>
+                <a href="#works" class="footer-link">Works</a>
+                <a href="#skills" class="footer-link">Skills</a>
+                <a href="#contact" class="footer-link">Contact</a>
+            </div>
+            <p class="footer-copyright">
+                Made with <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z"/></svg> by Mohd Abid Khan
+            </p>
+            <p class="footer-year">© 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js">
+    </script>
+</body>
+</html>

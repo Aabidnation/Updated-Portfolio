@@ -1,0 +1,1463 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background: hsl(220, 20%, 6%);
+  color: hsl(210, 40%, 98%);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================
+           CUSTOM CURSOR
+        ============================================ */
+.cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, hsl(180, 100%, 50%), hsl(270, 100%, 65%));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition:
+    transform 0.1s ease,
+    width 0.3s,
+    height 0.3s;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid hsl(180, 100%, 50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition:
+    transform 0.15s ease,
+    width 0.3s,
+    height 0.3s,
+    border-color 0.3s;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    hsl(180, 100%, 50%, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.2s ease;
+}
+
+.cursor.hover {
+  transform: scale(2);
+}
+
+.cursor-ring.hover {
+  transform: scale(1.5);
+  border-color: hsl(270, 100%, 65%);
+}
+
+/* ============================================
+           NAVIGATION
+        ============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  background: hsla(220, 20%, 6%, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid hsla(180, 100%, 50%, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.75rem 2rem;
+  background: hsla(220, 20%, 8%, 0.95);
+}
+
+.navbar-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    hsl(180, 100%, 50%),
+    hsl(270, 100%, 65%),
+    hsl(320, 100%, 60%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: hsl(215, 20%, 65%);
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(180, 100%, 50%), hsl(270, 100%, 65%));
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: hsl(210, 40%, 98%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: none;
+  padding: 5px;
+}
+
+.mobile-menu-btn span {
+  width: 25px;
+  height: 2px;
+  background: hsl(180, 100%, 50%);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: hsla(220, 20%, 8%, 0.98);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  border-bottom: 1px solid hsla(180, 100%, 50%, 0.1);
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-menu .nav-link {
+  display: block;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+}
+
+/* ============================================
+           SECTION BASE STYLES
+        ============================================ */
+section {
+  position: relative;
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  overflow: hidden;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-line {
+  width: 100px;
+  height: 4px;
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: hsl(215, 20%, 65%);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    hsl(180, 100%, 50%),
+    hsl(270, 100%, 65%),
+    hsl(320, 100%, 60%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass Card Base */
+.glass-card {
+  background: hsla(220, 20%, 10%, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid hsla(180, 100%, 50%, 0.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.4);
+}
+
+/* ============================================
+           HERO SECTION - Cyan/Teal Gradient
+        ============================================ */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8rem;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-gradient-1 {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    hsla(180, 100%, 50%, 0.15) 0%,
+    transparent 50%
+  );
+  animation: rotateGradient 50s linear infinite;
+}
+
+.hero-gradient-2 {
+  position: absolute;
+  bottom: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    hsla(200, 100%, 50%, 0.1) 0%,
+    transparent 50%
+  );
+  animation: rotateGradient 60s linear infinite reverse;
+}
+
+@keyframes rotateGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: hsl(180, 100%, 50%);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px);
+    opacity: 0.8;
+  }
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-greeting {
+  font-size: 1.25rem;
+  color: hsl(215, 20%, 65%);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-name {
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow:
+    0 0 60px hsla(180, 100%, 50%, 0.5),
+    0 0 120px hsla(270, 100%, 65%, 0.3);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+.hero-title {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.hero-title span {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: hsla(210, 40%, 98%, 0.8);
+  opacity: 0;
+  animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: hsl(215, 20%, 65%);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.8s forwards;
+}
+
+.hero-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1s forwards;
+}
+
+.social-btn {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow:
+    0 0 30px hsla(180, 100%, 50%, 0.4),
+    0 0 60px hsla(270, 100%, 65%, 0.3);
+}
+
+.social-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: hsl(180, 100%, 50%);
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: hsl(215, 20%, 65%);
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1.2s forwards;
+}
+
+.scroll-indicator svg {
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+           ABOUT SECTION - Purple/Violet Gradient
+        ============================================ */
+#about {
+  background: linear-gradient(
+    180deg,
+    hsl(220, 20%, 6%) 0%,
+    hsl(270, 30%, 8%) 50%,
+    hsl(220, 20%, 6%) 100%
+  );
+}
+
+.about-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    hsla(270, 100%, 65%, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.about-line {
+  background: linear-gradient(90deg, hsl(270, 100%, 65%), hsl(320, 100%, 60%));
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.about-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(
+    135deg,
+    hsl(270, 100%, 65%),
+    hsl(320, 100%, 60%),
+    hsl(270, 100%, 65%)
+  );
+  animation: borderRotate 5s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% {
+    background: linear-gradient(0deg, hsl(270, 100%, 65%), hsl(320, 100%, 60%));
+  }
+  25% {
+    background: linear-gradient(
+      90deg,
+      hsl(270, 100%, 65%),
+      hsl(320, 100%, 60%)
+    );
+  }
+  50% {
+    background: linear-gradient(
+      180deg,
+      hsl(270, 100%, 65%),
+      hsl(320, 100%, 60%)
+    );
+  }
+  75% {
+    background: linear-gradient(
+      270deg,
+      hsl(270, 100%, 65%),
+      hsl(320, 100%, 60%)
+    );
+  }
+  100% {
+    background: linear-gradient(
+      360deg,
+      hsl(270, 100%, 65%),
+      hsl(320, 100%, 60%)
+    );
+  }
+}
+
+.about-image-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, hsl(270, 50%, 20%), hsl(320, 50%, 15%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  overflow: hidden;
+}
+
+.about-image-inner img {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.about-image-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle,
+    hsla(270, 100%, 65%, 0.3) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.about-content h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: hsl(210, 40%, 98%);
+}
+
+.about-content p {
+  color: hsl(215, 20%, 65%);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 500px) {
+  .about-highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+.highlight-card {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 30px hsla(270, 100%, 65%, 0.3);
+  border-color: hsla(270, 100%, 65%, 0.5);
+}
+
+.highlight-card .icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-card h4 {
+  font-size: 0.9rem;
+  color: hsl(270, 100%, 70%);
+  margin-bottom: 0.25rem;
+}
+
+.highlight-card p {
+  font-size: 0.85rem;
+  color: hsl(215, 20%, 65%);
+  margin: 0;
+}
+
+/* ============================================
+           PROJECTS SECTION - Pink/Rose Gradient
+        ============================================ */
+#projects {
+  background: linear-gradient(
+    180deg,
+    hsl(220, 20%, 6%) 0%,
+    hsl(340, 30%, 8%) 50%,
+    hsl(220, 20%, 6%) 100%
+  );
+}
+
+.projects-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.projects-bg::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    hsla(340, 100%, 60%, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+.projects-bg::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    hsla(320, 100%, 50%, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.projects-line {
+  background: linear-gradient(90deg, hsl(340, 100%, 50%), hsl(275, 100%, 50%));
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 400px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    hsla(340, 100%, 60%, 0) 0%,
+    hsla(340, 100%, 60%, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px hsl(340, 100%, 50%);
+  border-color: hsla(186, 100%, 50%, 0.5);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-image {
+  height: 200px;
+  background: linear-gradient(
+    135deg,
+    hsla(340, 50%, 15%, 0.8),
+    hsla(320, 50%, 10%, 0.8)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.project-image img{
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.project-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, hsl(220, 20%, 10%), transparent);
+}
+
+.project-content {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: hsl(210, 40%, 98%);
+}
+
+.project-description {
+  font-size: 0.9rem;
+  color: hsl(215, 20%, 65%);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tag {
+  padding: 0.35rem 0.75rem;
+  background: hsla(340, 100%, 60%, 0.1);
+  border: 1px solid hsla(340, 100%, 60%, 0.3);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: hsl(340, 100%, 70%);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(
+    135deg,
+    hsla(340, 100%, 60%, 0.2),
+    hsla(320, 100%, 50%, 0.2)
+  );
+  border: 1px solid hsla(340, 100%, 60%, 0.3);
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+  color: hsl(340, 100%, 70%);
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: linear-gradient(
+    135deg,
+    hsla(340, 100%, 60%, 0.4),
+    hsla(320, 100%, 50%, 0.4)
+  );
+  transform: translateY(-2px);
+}
+
+.project-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ============================================
+           WORKS SECTION - Emerald/Teal Gradient
+        ============================================ */
+#works {
+  background: linear-gradient(
+    180deg,
+    hsl(220, 20%, 6%) 0%,
+    hsl(160, 30%, 6%) 50%,
+    hsl(220, 20%, 6%) 100%
+  );
+}
+
+.works-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    hsla(160, 100%, 40%, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.works-bg-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    hsla(180, 100%, 40%, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+.works-line {
+  background: linear-gradient(90deg, hsl(160, 100%, 40%), hsl(180, 100%, 50%));
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.work-card {
+  padding: 2rem;
+  border-radius: 1.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, hsl(160, 100%, 40%), hsl(180, 100%, 50%));
+  transition: width 0.5s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px hsla(160, 100%, 40%, 0.15);
+  border-color: hsla(160, 100%, 40%, 0.5);
+}
+
+.work-card:hover::before {
+  width: 100%;
+}
+
+.work-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 1rem;
+  background: linear-gradient(
+    135deg,
+    hsla(160, 100%, 40%, 0.2),
+    hsla(180, 100%, 50%, 0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.work-card:hover .work-icon {
+  background: linear-gradient(
+    135deg,
+    hsla(160, 100%, 40%, 0.4),
+    hsla(180, 100%, 50%, 0.4)
+  );
+  transform: scale(1.1);
+}
+
+.work-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: hsl(210, 40%, 98%);
+  transition: color 0.3s ease;
+}
+
+.work-card:hover h3 {
+  color: hsl(160, 100%, 50%);
+}
+
+.work-card p {
+  font-size: 0.9rem;
+  color: hsl(215, 20%, 65%);
+  line-height: 1.6;
+}
+
+/* ============================================
+           SKILLS SECTION - Blue/Indigo Gradient
+        ============================================ */
+#skills {
+  background: linear-gradient(
+    180deg,
+    hsl(220, 20%, 6%) 0%,
+    hsl(230, 30%, 8%) 50%,
+    hsl(220, 20%, 6%) 100%
+  );
+}
+
+.skills-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+    hsla(230, 100%, 60%, 0.05) 0%,
+    transparent 70%
+  );
+}
+
+.skills-line {
+  background: linear-gradient(90deg, hsl(210, 100%, 60%), hsl(260, 100%, 65%));
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.skill-category {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.skill-category:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px hsla(230, 100%, 60%, 0.15);
+}
+
+.skill-header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skill-header-1 {
+  background: linear-gradient(135deg, hsl(25, 95%, 53%), hsl(50, 100%, 50%));
+}
+.skill-header-2 {
+  background: linear-gradient(135deg, hsl(190, 90%, 50%), hsl(180, 80%, 45%));
+}
+.skill-header-3 {
+  background: linear-gradient(135deg, hsl(10, 80%, 55%), hsl(210, 80%, 50%));
+}
+.skill-header-4 {
+  background: linear-gradient(135deg, hsl(180, 100%, 50%), hsl(270, 100%, 65%));
+}
+.skill-header-5 {
+  background: linear-gradient(135deg, hsl(0, 0%, 20%), hsl(170, 80%, 40%));
+}
+
+.skill-header span:first-child {
+  font-size: 1.5rem;
+}
+
+.skill-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.skill-tags {
+  padding: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  padding: 0.5rem 1rem;
+  background: hsla(230, 30%, 15%, 0.5);
+  border: 1px solid hsla(230, 50%, 30%, 0.5);
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+  color: hsl(210, 40%, 98%);
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  border-color: hsla(210, 100%, 60%, 0.5);
+  background: hsla(210, 100%, 60%, 0.1);
+  transform: translateY(-2px);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px hsla(210, 100%, 60%, 0.2);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: hsl(215, 20%, 65%);
+}
+
+/* ============================================
+           CONTACT SECTION - Orange/Amber Gradient
+        ============================================ */
+#contact {
+  background: linear-gradient(
+    180deg,
+    hsl(220, 20%, 6%) 0%,
+    hsl(30, 30%, 6%) 50%,
+    hsl(220, 20%, 6%) 100%
+  );
+}
+
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.contact-bg::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    hsla(30, 100%, 50%, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.contact-line {
+  background: linear-gradient(90deg, hsl(30, 100%, 50%), hsl(45, 100%, 50%));
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: hsl(210, 40%, 98%);
+}
+
+.contact-info > p {
+  color: hsl(215, 20%, 65%);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+  background: hsla(30, 100%, 50%, 0.1);
+  transform: translateX(10px);
+}
+
+.contact-method .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    135deg,
+    hsla(30, 100%, 50%, 0.2),
+    hsla(45, 100%, 50%, 0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.contact-method h4 {
+  font-size: 0.9rem;
+  color: hsl(30, 100%, 60%);
+  margin-bottom: 0.25rem;
+}
+
+.contact-method p {
+  font-size: 0.95rem;
+  color: hsl(210, 40%, 98%);
+}
+
+.contact-form {
+  padding: 2rem;
+  border-radius: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: hsl(215, 20%, 65%);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: hsla(220, 20%, 15%, 0.5);
+  border: 1px solid hsla(30, 50%, 30%, 0.3);
+  border-radius: 0.75rem;
+  color: hsl(210, 40%, 98%);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: hsl(30, 100%, 50%);
+  box-shadow: 0 0 20px hsla(30, 100%, 50%, 0.2);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, hsl(30, 100%, 50%), hsl(45, 100%, 50%));
+  border: none;
+  border-radius: 0.75rem;
+  color: hsl(220, 20%, 6%);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: none;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px hsla(30, 100%, 50%, 0.4);
+}
+
+/* ============================================
+           FOOTER
+        ============================================ */
+footer {
+  padding: 4rem 2rem;
+  border-top: 1px solid hsla(180, 100%, 50%, 0.1);
+  background: linear-gradient(to top, hsla(180, 100%, 50%, 0.05), transparent);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-social {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.footer-social:hover {
+  transform: translateY(-3px);
+}
+
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+  fill: hsl(215, 20%, 65%);
+  transition: fill 0.3s ease;
+}
+
+.footer-social:hover svg {
+  fill: hsl(180, 100%, 50%);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-link {
+  font-size: 0.9rem;
+  color: hsl(215, 20%, 65%);
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: hsl(180, 100%, 50%);
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  color: hsl(215, 20%, 65%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.footer-copyright svg {
+  width: 16px;
+  height: 16px;
+  fill: hsl(0, 84%, 60%);
+}
+
+.footer-year {
+  font-size: 0.8rem;
+  color: hsla(215, 20%, 65%, 0.6);
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+           SCROLL ANIMATIONS
+        ============================================ */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 {
+  transition-delay: 0.1s;
+}
+.stagger-2 {
+  transition-delay: 0.2s;
+}
+.stagger-3 {
+  transition-delay: 0.3s;
+}
+.stagger-4 {
+  transition-delay: 0.4s;
+}
+.stagger-5 {
+  transition-delay: 0.5s;
+}
+.stagger-6 {
+  transition-delay: 0.6s;
+}
+
+/* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 1rem;
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+  }
+
+  .hero-title span {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+
+  .about-image-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .cursor,
+  .cursor-ring,
+  .cursor-glow {
+    display: none;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+  }
+}
