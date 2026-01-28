@@ -4,7 +4,7 @@
 Welcome to my official portfolio! This website is designed to showcase my skills, projects, and journey as a Frontend Developer. The design focuses on a **Premium Glassmorphism Aesthetic**, smooth user interactions, and a fully responsive layout.
 
 ## 🚀 Live Demo
-Check out the live version here: **[updated-portfolio-by-aabidnation.netlify.app]**
+Check out the live version here: updated-portfolio-by-aabidnation.netlify.app
 
 ## ✨ Key Features
 * **💎 Glassmorphism Design:** Modern frosted glass effects using backdrop-filters.
